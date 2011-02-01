@@ -8,6 +8,7 @@
  * @requires
  *   jquery.ui.core.js
  *   jquery.ui.widget.js
+ *   jquery.ui.button.js
  * @example  
  * $(function(){
  *   $("input#tags").taglist();
@@ -18,10 +19,17 @@
 (function( $, undefined ) {
 $.widget( "ui.taglist", {
 	options: {
-		
+		buttonText: false
 	},
 	_create: function() {
-		$('<a href="#" class="jquery-ui-taglist-button">link</a>').insertAfter(this.element);
+		$('<a />',{
+			'class' : 'jquery-ui-taglist-button',
+			'href' : '#'
+		}).insertAfter(this.element).button({
+			icons: {
+				primary: 'ui-icon-plus'
+			}
+		});;
 	},
 	destroy: function() {
 		
