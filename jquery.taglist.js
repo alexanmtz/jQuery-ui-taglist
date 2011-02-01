@@ -17,9 +17,11 @@
 
 (function( $, undefined ) {
 $.widget( "ui.taglist", {
-	options: {},
-	_create: function() {
+	options: {
 		
+	},
+	_create: function() {
+		$('<a href="#" class="jquery-ui-taglist-button">link</a>').insertAfter(this.element);
 	},
 	destroy: function() {
 		
