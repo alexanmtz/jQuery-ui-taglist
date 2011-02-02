@@ -19,17 +19,26 @@
 (function( $, undefined ) {
 $.widget( "ui.taglist", {
 	options: {
-		buttonText: false
+		
 	},
 	_create: function() {
+		var self = this;
+		this.element.wrap('<div />',{
+			'class' : 'jquery-ui-taglist-container'
+		});
 		$('<a />',{
 			'class' : 'jquery-ui-taglist-button',
-			'href' : '#'
+			'href' : '#',
+			click: {}
 		}).insertAfter(this.element).button({
 			icons: {
 				primary: 'ui-icon-plus'
 			}
-		});;
+		});
+		
+	},
+	addTag: function() {
+		
 	},
 	destroy: function() {
 		
