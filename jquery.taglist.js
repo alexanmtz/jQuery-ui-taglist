@@ -23,9 +23,10 @@ $.widget( "ui.taglist", {
 	},
 	_create: function() {
 		var self = this;
-		this.element.wrap('<div />',{
-			'class' : 'jquery-ui-taglist-container'
+		var container = $('<div></div>',{
+			'class' : 'jquery-ui-taglist-container ui-widget'
 		});
+		this.element.wrap(container);
 		$('<a />',{
 			'class' : 'jquery-ui-taglist-button',
 			'href' : '#',
