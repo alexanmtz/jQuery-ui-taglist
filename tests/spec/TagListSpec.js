@@ -31,6 +31,21 @@ describe("taglist", function() {
 		$('#tags').taglist();
 		expect($('.jquery-ui-taglist-button')).toHaveClass('ui-button');
 	});
+	
+	it("should dispatch a callback on click", function(){
+		var called = false;
+		$('#tags').taglist({
+			onAdd: function(){
+				called = true
+			}
+		});
+		$('.jquery-ui-taglist-button').trigger('click');
+		expect(called).toBeTruthy();
+	});
+	
+	it("should dispatch a callback on click using spy", function(){
+		
+	});
 
 		  	
   });

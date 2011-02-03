@@ -19,18 +19,25 @@
 (function( $, undefined ) {
 $.widget( "ui.taglist", {
 	options: {
-		
+		onAdd: new Function()
 	},
 	_create: function() {
 		var self = this;
 		var container = $('<div></div>',{
 			'class' : 'jquery-ui-taglist-container ui-widget'
 		});
+		var tagsHolder = $('<ul></ul>', {
+			'class' : 'jquery-ui-taglist-tags'
+		});
 		this.element.wrap(container);
+		tagsHolder.appendTo('.jquery-ui-taglist-container');	
 		$('<a />',{
 			'class' : 'jquery-ui-taglist-button',
 			'href' : '#',
-			click: {}
+			'click': function() {
+				self.addTag.call(self);
+				return false;
+			}
 		}).insertAfter(this.element).button({
 			icons: {
 				primary: 'ui-icon-plus'
@@ -39,7 +46,7 @@ $.widget( "ui.taglist", {
 		
 	},
 	addTag: function() {
-		
+		this.options.onAdd.call(this);
 	},
 	destroy: function() {
 		

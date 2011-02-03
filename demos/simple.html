@@ -12,7 +12,11 @@
   <script type="text/javascript" src="../jquery.taglist.js"></script>
   <script type="text/javascript">
 	$(function(){
-		$('#tags').taglist();		
+		$('#tags').taglist({
+			onAdd: function() {
+				console.info(this);
+			}
+		});		
 	});
   </script>
 
