@@ -45,6 +45,7 @@ describe("taglist", function() {
 	
 	it("should dispatch a callback on click using spy", function(){
 		
+
 	});
 
 		  	
